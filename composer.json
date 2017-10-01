@@ -8,5 +8,20 @@
             "email": "john.royer@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Zeroplex\\Tool\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Zeroplex\\Tool\\Test\\": "tests/src"
+        }
+    },
+    "minimum-stability": "stable"
 }
