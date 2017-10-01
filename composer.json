@@ -1,0 +1,12 @@
+{
+    "name": "johnroyer/config-reader",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zero",
+            "email": "john.royer@gmail.com"
+        }
+    ],
+    "require": {}
+}
