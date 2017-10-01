@@ -4,6 +4,11 @@ namespace Zeroplex\Tool;
 
 class File
 {
+    public static function isAccessible(string $path): bool
+    {
+        return is_dir($path) && is_readable($path);
+    }
+
     /**
      * Get file ext
      *
