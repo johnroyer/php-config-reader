@@ -15,12 +15,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Zeroplex\\Tool\\": "src/"
+            "Zeroplex\\Config\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zeroplex\\Tool\\Test\\": "tests/src"
+            "Zeroplex\\Config\\Test\\": "tests/src"
         }
     },
     "minimum-stability": "stable"
