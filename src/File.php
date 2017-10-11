@@ -38,7 +38,7 @@ class File
      * @param bool $recursive also get files in subfolders
      * @return array a list of files with absolute path
      */
-    public static function getFilesFromDir(string $dir, bool $recursive)
+    public static function getFilesFromDir(string $dir, bool $recursive = false)
     {
         if (!is_readable($dir)) {
             return []; // @codeCoverageIgnore
