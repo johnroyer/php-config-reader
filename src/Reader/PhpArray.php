@@ -36,7 +36,7 @@ class PhpArray
 
     public function loadSettings(string $file): void
     {
-        $key = self::getKeyspace($file);
+        $key = $this->getKeyspace($file);
 
         $settings = (function () use ($file) {
             return require $file;
