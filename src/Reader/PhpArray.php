@@ -2,7 +2,7 @@
 
 namespace Zeroplex\Config\Reader;
 
-use Zeroplex\Config;
+use Zeroplex\Config\Config;
 use Zeroplex\File;
 
 class PhpArray
