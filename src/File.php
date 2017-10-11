@@ -1,6 +1,6 @@
 <?php
 
-namespace Zeroplex\Tool;
+namespace Zeroplex\Config;
 
 class File
 {
