@@ -1,6 +1,6 @@
 <?php
 
-namespace Zeroplex\Tool;
+namespace Zeroplex\Config;
 
 class File
 {
@@ -38,7 +38,7 @@ class File
      * @param bool $recursive also get files in subfolders
      * @return array a list of files with absolute path
      */
-    public static function getFilesFromDir(string $dir, bool $recursive)
+    public static function getFilesFromDir(string $dir, bool $recursive = false)
     {
         if (!is_readable($dir)) {
             return []; // @codeCoverageIgnore
@@ -65,7 +65,7 @@ class File
 
             if (is_dir($file) && $recursive) {
                 // scan folder recursively if needed
-                $files = array_merge($files, self::getFileFromDir($file));
+                $files = array_merge($files, self::getFilesFromDir($file));
             }
         }
         return $files;
