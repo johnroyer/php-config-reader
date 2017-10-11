@@ -1,6 +1,6 @@
 <?php
 
-namespace Zeroplex\Tool;
+namespace Zeroplex\Config;
 
 class Config
 {
@@ -18,6 +18,11 @@ class Config
 
         $this->config = [];
         $this->isloaded = false;
+    }
+
+    public function getBasePath(): string
+    {
+        return $this->basePath;
     }
 
     public function load(): void
