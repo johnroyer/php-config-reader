@@ -65,7 +65,7 @@ class File
 
             if (is_dir($file) && $recursive) {
                 // scan folder recursively if needed
-                $files = array_merge($files, self::getFileFromDir($file));
+                $files = array_merge($files, self::getFilesFromDir($file));
             }
         }
         return $files;
