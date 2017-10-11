@@ -1,15 +1,15 @@
 <?php
 
-namespace Zeroplex\Tool\Config;
+namespace Zeroplex\Config\Reader;
 
-use Zeroplex\Tool\Config;
-use Zeroplex\Tool\File;
+use Zeroplex\Config;
+use Zeroplex\File;
 
 class PhpArray
 {
     private $config = null;
 
-    public function __construct(\Zeroplex\Tool\Config $config)
+    public function __construct(Config $config)
     {
         $this->config = $config;
     }
