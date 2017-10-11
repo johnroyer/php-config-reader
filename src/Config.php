@@ -20,6 +20,11 @@ class Config
         $this->isloaded = false;
     }
 
+    public function getBasePath(): string
+    {
+        return $this->basePath;
+    }
+
     public function load(): void
     {
         // TODO
