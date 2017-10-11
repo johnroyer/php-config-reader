@@ -16,6 +16,22 @@ class PhpArray
 
     public function getKeyspace(string $file): string
     {
+        $info = pathinfo($file);
+        $filePath = $info['dirname'];
+        $name = $info['filename'];
+
+        $node = [];
+        $cutFrom = strlen($this->config->getBasePath()) + 1;
+        $path = substr($filePath, $cutFrom);
+
+        if (!empty($path)) {
+            $node = explode('/', $path);
+        }
+
+        array_push($node, $name);
+        $namespace = implode('.', $node);
+
+        return $namespace;
     }
 
     public function loadSettings(string $file): void
