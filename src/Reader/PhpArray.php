@@ -46,9 +46,4 @@ class PhpArray
             $this->config->set($key, $settings);
         }
     }
-
-    public function isPhpExt(string $file): bool
-    {
-        return 'php' == File::getFileExt($file);
-    }
 }
