@@ -59,4 +59,11 @@ class PhpArrayTest extends TestCase
             ],
         ];
     }
+
+    public function testSettingLoader()
+    {
+        $config = \Mockery::mock(\Zeroplex\Config\Config::class);
+        $config->shouldReceive('getBasePath')
+            ->andReturn(TEST_ROOT . '/fixtures/config');
+    }
 }
