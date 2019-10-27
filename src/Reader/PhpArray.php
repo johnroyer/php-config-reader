@@ -8,16 +8,10 @@ use Zeroplex\File;
 class PhpArray
 {
     private $config = null;
-    private $includePath = '';
 
     public function __construct(Config $config)
     {
         $this->config = $config;
-    }
-
-    public function setIncludePath(string $path)
-    {
-        $this->includePath = $path;
     }
 
     public function getKeyspace(string $file): string
@@ -26,14 +20,6 @@ class PhpArray
         $output = array_slice($nodes, -1);
         $key = pathinfo($output[0])['filename'];
 
-        $prefix = '';
-        if (!empty($this->includePath)) {
-            $prefix = array_slice(
-                explode('/', $this->includePath),
-                -1
-            )[0];
-            return "$prefix.$key";
-        }
         return $key;
     }
 

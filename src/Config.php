@@ -36,7 +36,6 @@ class Config
             $configs = File::getFilesFromDir($this->filePath, true);
             $reader = Factory::getReader($this, $configs[0]);
 
-            $reader->setIncludePath($this->filePath);
             foreach ($configs as $file) {
                 $reader->loadSettings($file);
             }
