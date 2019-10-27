@@ -8,39 +8,38 @@ use Zeroplex\File;
 class PhpArray
 {
     private $config = null;
+    private $includePath = '';
 
     public function __construct(Config $config)
     {
         $this->config = $config;
     }
 
+    public function setIncludePath(string $path)
+    {
+        $this->includePath = $path;
+    }
+
     public function getKeyspace(string $file): string
     {
-        $info = pathinfo($file);
-        $filePath = $info['dirname'];
-        $name = $info['filename'];
+        $nodes = explode('/', $file);
+        $output = array_slice($nodes, -1);
+        $key = pathinfo($output[0])['filename'];
 
-        $node = [];
-        $cutFrom = strlen($this->config->getBasePath()) + 1;
-        $path = substr($filePath, $cutFrom);
-
-        if (!empty($path)) {
-            $node = explode('/', $path);
+        $prefix = '';
+        if (!empty($this->includePath)) {
+            $prefix = array_slice(
+                explode('/', $this->includePath),
+                -1
+            )[0];
+            return "$prefix.$key";
         }
-
-        array_push($node, $name);
-        $namespace = implode('.', $node);
-
-        return $namespace;
+        return $key;
     }
 
     public function loadSettings(string $file): void
     {
-        if (!is_dir($file)) {
-            $key = pathinfo($file)['filename'];
-        } else {
-            $key = $this->getKeyspace($file);
-        }
+        $key = $this->getKeyspace($file);
 
         $settings = (function () use ($file) {
             return require $file;
