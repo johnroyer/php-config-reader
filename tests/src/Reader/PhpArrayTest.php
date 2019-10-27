@@ -10,14 +10,14 @@ class PhpArrayTest extends TestCase
     private $config = null;
     private $reader = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->config = $this->mockConfig();
 
         $this->reader = new PhpArray($this->config);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->config = null;
     }
