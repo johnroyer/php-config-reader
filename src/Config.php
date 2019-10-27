@@ -2,7 +2,8 @@
 
 namespace Zeroplex\Config;
 
-use Zeroplex\Config\Reader\PhpArray;
+use Zeroplex\Config\Reader\Factory;
+use Zeroplex\Config\File;
 
 class Config
 {
@@ -30,8 +31,20 @@ class Config
 
     public function load(): void
     {
-        $reader = new PhpArray($this);
+        $reader = null;
+        if (is_dir($this->filePath)) {
+            $configs = File::getFilesFromDir($this->filePath, true);
+            $reader = Factory::getReader($this, $configs[0]);
+
+            $reader->setIncludePath($this->filePath);
+            foreach ($configs as $file) {
+                $reader->loadSettings($file);
+            }
+            return;
+        }
+        $reader = Factory::getReader($this, $this->filePath);
         $reader->loadSettings($this->filePath);
+        return;
     }
 
     public function get(string $key, $default = null)

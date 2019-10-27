@@ -2,11 +2,12 @@
 
 namespace Zeroplex\Config\Reader;
 
+use Zeroplex\Config\Config;
 use Zeroplex\Config\Reader\PhpArray;
 
 class Factory
 {
-    public function getReader(Config $config, $configFile)
+    public static function getReader(Config $config, $configFile)
     {
         if ('php' == pathinfo($configFile)['extension']) {
             return new PhpArray($config);
