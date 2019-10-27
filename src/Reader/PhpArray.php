@@ -36,7 +36,11 @@ class PhpArray
 
     public function loadSettings(string $file): void
     {
-        $key = $this->getKeyspace($file);
+        if (!is_dir($file)) {
+            $key = pathinfo($file)['filename'];
+        } else {
+            $key = $this->getKeyspace($file);
+        }
 
         $settings = (function () use ($file) {
             return require $file;
