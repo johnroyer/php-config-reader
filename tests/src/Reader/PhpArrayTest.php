@@ -10,14 +10,14 @@ class PhpArrayTest extends TestCase
     private $config = null;
     private $reader = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->config = $this->mockConfig();
 
         $this->reader = new PhpArray($this->config);
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->config = null;
     }
@@ -51,11 +51,11 @@ class PhpArrayTest extends TestCase
             ],
             [
                 TEST_ROOT . '/fixtures/config/storage/log.php',
-                'storage.log',
+                'log',
             ],
             [
                 TEST_ROOT . '/fixtures/config/storage/s3.php',
-                'storage.s3',
+                's3',
             ],
         ];
     }
