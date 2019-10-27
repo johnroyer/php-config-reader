@@ -30,7 +30,7 @@ class FileTest extends TestCase
     public function testFileFinder()
     {
         $path = TEST_ROOT . '/fixtures/config';
-        $files = File::getFilesFromDir($path);
+        $files = File::getFilesFromDir($path, false);
 
         $this->assertEquals(2, count($files));
     }
