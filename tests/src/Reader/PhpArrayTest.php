@@ -51,11 +51,11 @@ class PhpArrayTest extends TestCase
             ],
             [
                 TEST_ROOT . '/fixtures/config/storage/log.php',
-                'storage.log',
+                'log',
             ],
             [
                 TEST_ROOT . '/fixtures/config/storage/s3.php',
-                'storage.s3',
+                's3',
             ],
         ];
     }
